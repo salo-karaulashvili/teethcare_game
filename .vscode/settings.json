@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "teethcare_game.sln"
+    "dotnet.defaultSolution": "teethcare_game.sln",
+    "git.ignoreLimitWarning": true
 }

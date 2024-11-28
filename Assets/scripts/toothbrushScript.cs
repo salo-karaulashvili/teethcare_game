@@ -23,6 +23,7 @@ public class toothbrushScript : MonoBehaviour
                 other.GetComponent<SpriteResolver>().SetCategoryAndLabel("textures","broken_clean");
             }else{
                 other.GetComponent<SpriteResolver>().SetCategoryAndLabel("textures","clean");
+                other.GetComponentInChildren<Animator>().SetTrigger("happy");
             }
             timer=0;
             cleanteeth++;
