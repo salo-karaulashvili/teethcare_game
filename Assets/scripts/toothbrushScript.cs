@@ -27,7 +27,15 @@ public class toothbrushScript : MonoBehaviour
             }
             timer=0;
             cleanteeth++;
+            Transform foamChild=other.gameObject.transform.Find("Foam").transform.GetChild(0);
+            var main1=foamChild.GetComponent<ParticleSystem>().main;
+            var main2=foamChild.GetChild(0).GetComponent<ParticleSystem>().main;
+            main1.loop=false;
+            main2.loop=false;
         }
-        else timer+=Time.deltaTime;
+        else{
+            timer+=Time.deltaTime;
+            if(!other.GetComponent<SpriteResolver>().GetLabel().Contains("clean")) other.gameObject.transform.Find("Foam").gameObject.SetActive(true);
+        } 
     }
 }
