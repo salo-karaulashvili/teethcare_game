@@ -32,6 +32,8 @@ public class toothbrushScript : MonoBehaviour
             var main2=foamChild.GetChild(0).GetComponent<ParticleSystem>().main;
             main1.loop=false;
             main2.loop=false;
+            main1.startLifetime=0.5f;
+            main2.startLifetime=0.5f;
         }
         else{
             timer+=Time.deltaTime;
