@@ -2241,12 +2241,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_Name
       value: Foam
       objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3364,12 +3396,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_Name
       value: Foam
       objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4429,12 +4493,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_Name
       value: Foam
       objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8810,7 +8906,7 @@ MonoBehaviour:
   - {fileID: 165921796}
   - {fileID: 1363517925}
   - {fileID: 473552700}
-  bacteria: {fileID: 8934777594905625535, guid: 4cec592e0cbae574d930e93b8984ff65, type: 3}
+  bacteria: {fileID: 1956751682}
   toothbrush: {fileID: 1388136383}
   moutharea: {fileID: 682852233}
   brokenToothArea: {fileID: 513850179}
@@ -9418,12 +9514,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2032068080566739859, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_Name
       value: Foam
       objectReference: {fileID: 0}
     - target: {fileID: 6218157394875672799, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.y
+      value: -0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4600001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6373063439511288177, guid: b4dce4c090d570148a92d1236b2dc0b5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9622,13 +9750,15 @@ GameObject:
   m_Component:
   - component: {fileID: 1956751684}
   - component: {fileID: 1956751683}
+  - component: {fileID: 1956751685}
+  - component: {fileID: 1956751686}
   m_Layer: 0
   m_Name: Bacterias
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &1956751683
 Animator:
   serializedVersion: 5
@@ -9666,6 +9796,55 @@ Transform:
   - {fileID: 517510183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1956751685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956751682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1aa5910f6921c49a7201ba7b88b7fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOn: 0
+  deadBacteriaCount: 0
+--- !u!58 &1956751686
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956751682}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.0541842}
+  serializedVersion: 2
+  m_Radius: 1.134275
 --- !u!1 &1957312452
 GameObject:
   m_ObjectHideFlags: 0

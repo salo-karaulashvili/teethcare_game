@@ -21,8 +21,17 @@ public class bacteriaManager : MonoBehaviour
         totaladded=0;
         this.index=index;
         stop=false;
-        int skinNum=UnityEngine.Random.Range(0,3);
-        GetComponent<SpriteResolver>().SetCategoryAndLabel("textures",skinNum+"");
+             Vector2 scale=transform.localScale;
+        if(neg){
+             scale.y=-1;
+             scale.x=-1;
+        }else{
+             scale.y=1;
+                scale.x=1;
+        }
+             transform.localScale=scale;
+        //int skinNum=UnityEngine.Random.Range(0,3);
+//        GetComponent<SpriteResolver>().SetCategoryAndLabel("textures",skinNum+"");
     }
 
     void OnMouseDown()
@@ -36,7 +45,7 @@ public class bacteriaManager : MonoBehaviour
     void Update()
     {
         if(gameOn){
-            if(!stop){
+           /* if(!stop){
                 checkOrientation();
                 Vector2 pos=transform.localPosition;
                 if(neg) {
@@ -50,7 +59,7 @@ public class bacteriaManager : MonoBehaviour
                     totaladded+=delta;
                 }
                 transform.localPosition=pos;
-            }
+            }*/
         }
         
     }

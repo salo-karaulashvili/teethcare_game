@@ -22,8 +22,9 @@ public class gameController : MonoBehaviour
     void Start(){
         bacteriaCount=5;
         bacteriaSpawnPositions=new List<int> {0, 6,3,7,2};
-        curBacteria=Instantiate(bacteria);
-        curBacteria.transform.localScale=new Vector3(curBacteria.transform.localScale.x/3f,curBacteria.transform.localScale.y/3f,curBacteria.transform.localScale.z);
+        //curBacteria=Instantiate(bacteria);
+        //curBacteria.transform.localScale=new Vector3(curBacteria.transform.localScale.x/3f,curBacteria.transform.localScale.y/3f,curBacteria.transform.localScale.z);
+        curBacteria=bacteria;
         spawnBacteria();
         ToothBrushInitPosition=toothbrush.transform.position;
         teethCorrectPositions=new List<Transform>();
@@ -109,9 +110,9 @@ public class gameController : MonoBehaviour
         //int teethnum=bacteriaSpawnPositions[bacteriaCount-1];
         int teethnum=UnityEngine.Random.Range(0,teeth.Length);
         Quaternion rot=teeth[teethnum].transform.rotation;
-        Vector2 pos=teeth[teethnum].transform.position;
-        curBacteria.transform.parent=teeth[teethnum].transform.parent;
-        curBacteria.transform.position=pos;
+        Vector2 pos=new Vector2(0,0);
+        curBacteria.transform.parent=teeth[teethnum].transform;
+        curBacteria.transform.localPosition=new Vector2(0,0);
         curBacteria.transform.rotation=rot;
         bacteriaCount--;
         curBacteria.GetComponent<bacteriaManager>().init(teethnum);
