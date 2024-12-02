@@ -33,7 +33,7 @@ public class teethPieceMovement : MonoBehaviour
     }
 
     bool almostThere(Vector2 p1, Vector2 d,float threshold){ //p=pos1, d=destination
-        return math.abs(d.y-p1.y)<threshold||math.abs(d.x-p1.x)<threshold;
+        return math.abs(d.y-p1.y)<threshold&&math.abs(d.x-p1.x)<threshold;
     }
 
      void OnMouseDrag(){
@@ -42,13 +42,12 @@ public class teethPieceMovement : MonoBehaviour
         Vector2 mousePos=Input.mousePosition;
         Vector2 screenPoint=mainCam.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, mainCam.nearClipPlane));
         transform.position=screenPoint;
-        if(almostThere(transform.position,correctPosition,0.05f)) {
+        if(almostThere(transform.position,correctPosition,0.1f)) {
             inCorrectPositon=true;
             transform.position=correctPosition;
         }
     }}
     void OnMouseUp(){
         gotime=true;
-        //Debug.Log("done");
     }
 }
