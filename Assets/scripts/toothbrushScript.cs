@@ -16,6 +16,8 @@ public class toothbrushScript : MonoBehaviour
     private void OnTriggerStay2D(Collider2D other){
         if(other.gameObject.tag=="lowertooth") GetComponent<SpriteRenderer>().flipY=true;
         else GetComponent<SpriteRenderer>().flipY=false;
+        SpriteResolver sp=other.GetComponent<SpriteResolver>();
+        if(sp!=null){
         if(timer>2f&&!other.GetComponent<SpriteResolver>().GetLabel().Contains("clean")){
             //other.gameObject.SetActive(false);
             //Debug.Log(other.GetComponent<SpriteResolver>().GetLabel());
@@ -37,7 +39,12 @@ public class toothbrushScript : MonoBehaviour
         }
         else{
             timer+=Time.deltaTime;
-            if(!other.GetComponent<SpriteResolver>().GetLabel().Contains("clean")) other.gameObject.transform.Find("Foam").gameObject.SetActive(true);
+            //SpriteResolver sp=other.GetComponent<SpriteResolver>();
+            //if(sp!=null){
+                if(!sp.GetLabel().Contains("clean")) {
+                    other.gameObject.transform.Find("Foam").gameObject.SetActive(true);
+                }
+           // }
         } 
-    }
+    }}
 }

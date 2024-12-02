@@ -22,8 +22,6 @@ public class gameController : MonoBehaviour
     void Start(){
         bacteriaCount=5;
         bacteriaSpawnPositions=new List<int> {0, 6,3,7,2};
-        //curBacteria=Instantiate(bacteria);
-        //curBacteria.transform.localScale=new Vector3(curBacteria.transform.localScale.x/3f,curBacteria.transform.localScale.y/3f,curBacteria.transform.localScale.z);
         curBacteria=bacteria;
         spawnBacteria();
         ToothBrushInitPosition=toothbrush.transform.position;
@@ -38,14 +36,15 @@ public class gameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount<5){
+        if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount<6){
             spawnBacteria();
         }
-        else if(curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount==5){
+        else if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount==6){
             toothbrush.gameObject.SetActive(true);
             curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount++;
         }
         if(toothbrush.GetComponent<toothbrushScript>().cleanteeth==8){
+            toothbrush.GetComponent<Collider2D>().enabled=false;
             toothbrush.transform.position=Vector2.Lerp(toothbrush.transform.position,ToothBrushInitPosition,2f*Time.deltaTime);
             if(almostThere(toothbrush.transform.position,ToothBrushInitPosition,0.2f)){
                 toothbrush.GetComponent<toothbrushScript>().cleanteeth++;
@@ -66,7 +65,6 @@ public class gameController : MonoBehaviour
             }
             if(correct) {
                 index++;
-                //bednieri saxe rom aqvs es aklia aq
                 Invoke("showPrettyTeeth",2f);
             }
         }
@@ -76,13 +74,11 @@ public class gameController : MonoBehaviour
         brokenToothArea.gameObject.SetActive(false);
         background.GetComponent<SpriteRenderer>().color=new Color32(255,204,171,255);
         moutharea.gameObject.SetActive(true);
-        //teeth[brokenTeethIndex].GetComponentInChildren<Animator>().SetTrigger("happy");
         teeth[brokenTeethIndex].GetComponent<SpriteResolver>().SetCategoryAndLabel("textures","clean");
         for(int i=0;i<teeth.Length;i++){
             teeth[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
             teeth[i].GetComponentInChildren<Animator>().SetTrigger("happy");
         }
-        //teeth[brokenTeethIndex].transform.GetChild(0).transform.GetChild(0).gameObject.SetActive(true);
     }
 
     bool almostThere(Vector2 p1, Vector2 d,float threshold){ //p=pos1, d=destination
@@ -107,7 +103,6 @@ public class gameController : MonoBehaviour
 
     private void spawnBacteria()
     {
-        //int teethnum=bacteriaSpawnPositions[bacteriaCount-1];
         int teethnum=UnityEngine.Random.Range(0,teeth.Length);
         Quaternion rot=teeth[teethnum].transform.rotation;
         Vector2 pos=new Vector2(0,0);

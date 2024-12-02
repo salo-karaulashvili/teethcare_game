@@ -25,6 +25,7 @@ public class teethPieceMovement : MonoBehaviour
             if(almostThere(transform.position,destination.position,0.1f)) {
                 isThere=true;
                 gotime=false;
+                GetComponent<Collider2D>().enabled=true;
             }
             else transform.position=Vector2.Lerp(transform.position,destination.position,Time.deltaTime*10f);
             }
@@ -32,7 +33,7 @@ public class teethPieceMovement : MonoBehaviour
     }
 
     bool almostThere(Vector2 p1, Vector2 d,float threshold){ //p=pos1, d=destination
-        return math.abs(d.y-p1.y)<threshold&&math.abs(d.x-p1.x)<threshold;
+        return math.abs(d.y-p1.y)<threshold||math.abs(d.x-p1.x)<threshold;
     }
 
      void OnMouseDrag(){
@@ -44,7 +45,6 @@ public class teethPieceMovement : MonoBehaviour
         if(almostThere(transform.position,correctPosition,0.05f)) {
             inCorrectPositon=true;
             transform.position=correctPosition;
-
         }
     }}
     void OnMouseUp(){

@@ -13,11 +13,14 @@ public class bacteriaManager : MonoBehaviour
     private float totaladded;
     private int index;
     public int deadBacteriaCount;
+    private static List<String> trigNames=new List<string>{"orange","green","pink","purple"};
+    private static List<String> trigNamesDeath=new List<string>{"odie","gdie","pdie","pudie"};
+    private int deathAnimIndx;
     public void init(int index)
     {
+        gameObject.SetActive(true);
         neg=index<4;
         gameOn=true;
-        gameObject.SetActive(true);
         totaladded=0;
         this.index=index;
         stop=false;
@@ -30,39 +33,20 @@ public class bacteriaManager : MonoBehaviour
                 scale.x=1;
         }
              transform.localScale=scale;
-        //int skinNum=UnityEngine.Random.Range(0,3);
-//        GetComponent<SpriteResolver>().SetCategoryAndLabel("textures",skinNum+"");
+        int skinNum=UnityEngine.Random.Range(0,4);
+        transform.GetComponent<Animator>().SetTrigger(trigNames[skinNum]);
+        deathAnimIndx=skinNum;
     }
 
     void OnMouseDown()
     {
-        gameOn=false;
-        gameObject.SetActive(false);
+        Invoke("falseGameon",1f);
+        transform.GetComponent<Animator>().SetTrigger(trigNamesDeath[deathAnimIndx]);
         deadBacteriaCount++;
     }
+    void falseGameon(){gameOn=false;}
 
     // Update is called once per frame
-    void Update()
-    {
-        if(gameOn){
-           /* if(!stop){
-                checkOrientation();
-                Vector2 pos=transform.localPosition;
-                if(neg) {
-                    float delta=1f*Time.deltaTime;
-                    pos.y-=delta;
-                    totaladded-=delta;
-                }
-                else {
-                    float delta=1f*Time.deltaTime;
-                    pos.y+=delta;
-                    totaladded+=delta;
-                }
-                transform.localPosition=pos;
-            }*/
-        }
-        
-    }
 
     private void checkOrientation()
     {
