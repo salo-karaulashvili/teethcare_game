@@ -318,6 +318,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!212 &31794132
 SpriteRenderer:
@@ -5927,6 +5929,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &77380216
 PolygonCollider2D:
@@ -6958,6 +6962,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &165921799
 PolygonCollider2D:
@@ -7971,7 +7977,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273029995}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.0811, y: -2.85, z: 0}
   m_LocalScale: {x: 0.9965, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7994,6 +8000,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &273029998
 PolygonCollider2D:
@@ -9349,7 +9357,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360677473}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.725, y: 1.0625, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -9372,6 +9380,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &360677476
 PolygonCollider2D:
@@ -11037,6 +11047,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &473552703
 PolygonCollider2D:
@@ -11987,6 +11999,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &523337701
 PolygonCollider2D:
@@ -43349,6 +43363,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &1202536354
 PolygonCollider2D:
@@ -50052,6 +50068,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &1363517928
 PolygonCollider2D:
@@ -56216,6 +56234,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &1480004973
 PolygonCollider2D:
@@ -56586,6 +56606,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!212 &1528774772
 SpriteRenderer:
@@ -60364,6 +60386,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!60 &1837370778
 PolygonCollider2D:
@@ -61866,6 +61890,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!212 &1942750846
 SpriteRenderer:
@@ -62810,6 +62836,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!212 &2000538117
 SpriteRenderer:
@@ -63853,6 +63881,8 @@ MonoBehaviour:
   mainCam: {fileID: 519420031}
   isThere: 0
   gotime: 0
+  incorrectAnimation1: 0
+  incorrectAnimation2: 0
   inCorrectPositon: 0
 --- !u!212 &2104613136
 SpriteRenderer:

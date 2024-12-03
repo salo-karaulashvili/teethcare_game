@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.U2D.Animation;
 using UnityEngine.UI;
 
@@ -155,6 +156,11 @@ public class gameController : MonoBehaviour
             teeth[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
             teeth[i].GetComponentInChildren<Animator>().SetTrigger("happy");
         }
+        Invoke("reload",3f);
+    }
+
+    void reload(){
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     bool almostThere(Vector2 p1, Vector2 d,float threshold){ //p=pos1, d=destination

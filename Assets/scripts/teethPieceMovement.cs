@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,14 +9,18 @@ public class teethPieceMovement : MonoBehaviour
     [SerializeField] Transform destination;
     [SerializeField] Camera mainCam;
     public bool isThere;
-    public bool gotime;
+    public bool gotime,incorrectAnimation1,incorrectAnimation2;
     public bool inCorrectPositon;
     Vector2 correctPosition;
+    Quaternion dest1,dest2;
     public void init(Vector2 correctPosition){
         isThere=false;
         this.correctPosition=correctPosition;
         inCorrectPositon=false;
         gotime=true;
+        incorrectAnimation1=false;
+        dest1=new Quaternion(0,0,-0.0871557817f,0.99619472f);
+        dest2=new Quaternion(0,0,0.0871557817f,0.99619472f);
     }
 
     // Update is called once per frame
@@ -29,7 +34,27 @@ public class teethPieceMovement : MonoBehaviour
             }
             else transform.position=Vector2.Lerp(transform.position,destination.position,Time.deltaTime*10f);
             }
+        }else if(incorrectAnimation1){
+            transform.rotation=Quaternion.Lerp(transform.rotation,dest1,Time.deltaTime*20f);
+            if(almostRotated(transform.rotation,dest1)) {
+                incorrectAnimation1=false;
+                incorrectAnimation2=true;
+            }
         }
+        else if(incorrectAnimation2){
+            transform.rotation=Quaternion.Lerp(transform.rotation,dest2,Time.deltaTime*20f);
+            if(almostRotated(transform.rotation,dest2)) {
+                incorrectAnimation1=false;
+                incorrectAnimation2=false;
+                transform.rotation=new Quaternion(0,0,0,1);
+                GetComponent<Collider2D>().enabled=true;
+                gotime=true;
+            }
+        }
+    }
+
+    private bool almostRotated(Quaternion r, Quaternion d ){
+        return math.abs(r.x-d.x)<0.0001&&math.abs(r.y-d.y)<0.0001&&math.abs(r.z-d.z)<0.0001&&math.abs(r.w-d.w)<0.0001;
     }
 
     bool almostThere(Vector2 p1, Vector2 d,float threshold){ //p=pos1, d=destination
@@ -48,6 +73,10 @@ public class teethPieceMovement : MonoBehaviour
         }
     }}
     void OnMouseUp(){
-        gotime=true;
+        if(!inCorrectPositon){
+            incorrectAnimation1=true;
+            GetComponent<Collider2D>().enabled=false;
+        }
+        else gotime=true;
     }
 }
