@@ -22,7 +22,7 @@ public class gameController : MonoBehaviour
     //ui
     [SerializeField] Button humanButton,sharkButton,crocodileButton;
     [SerializeField] GameObject humanMouth,crocodileMouth,sharkMouth;
-    [SerializeField] Canvas canvas;
+    [SerializeField] GameObject brokenTooth,buttons;
 
     private List<Transform> teethCorrectPositions;
     private GameObject curBacteria,curTooth;
@@ -61,7 +61,7 @@ public class gameController : MonoBehaviour
     }
 
     void init(){
-        canvas.gameObject.SetActive(false);
+        buttons.gameObject.SetActive(false);
         teethCorrectPositions=new List<Transform>();
         curBacteria=bacteria;
         if(human){
@@ -148,6 +148,7 @@ public class gameController : MonoBehaviour
     private void showPrettyTeeth(){
         happyFace.gameObject.SetActive(false);
         brokenToothArea.gameObject.SetActive(false);
+        brokenTooth.gameObject.SetActive(false);
         maincam.backgroundColor=backColor;
         background.GetComponent<SpriteRenderer>().color=backColor;
         mouthArea.gameObject.SetActive(true);
@@ -174,6 +175,7 @@ public class gameController : MonoBehaviour
         maincam.backgroundColor=new Color32(95,156,246,255);
         background.GetComponent<SpriteRenderer>().color=new Color32(95,156,246,255);
         brokenToothArea.gameObject.SetActive(true);
+        brokenTooth.gameObject.SetActive(true);
         curTooth=toothPieces[index];
         Invoke("movePieces",2f);
 
@@ -185,8 +187,11 @@ public class gameController : MonoBehaviour
 
     private void spawnBacteria(){
         int teethnum=UnityEngine.Random.Range(0,teeth.Length);
-        if(crocodile||true){
+        if(crocodile){
             while(new List<int>{0,5,6,11}.Contains(teethnum)) teethnum=UnityEngine.Random.Range(0,teeth.Length);
+        }
+        else if(shark){
+            while(new List<int>{2,5,11,12}.Contains(teethnum)) teethnum=UnityEngine.Random.Range(0,teeth.Length);
         }
         Quaternion rot=teeth[teethnum].transform.rotation;
         curBacteria.transform.localScale=new Vector3(0.5f,0.5f,0.5f);

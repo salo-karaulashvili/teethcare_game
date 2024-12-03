@@ -17,7 +17,8 @@ public class bacteriaManager : MonoBehaviour
     private int deathAnimIndx;
     public void init(int index,int length){
         gameObject.SetActive(true);
-        neg=index<(length/2);
+        if(length%2==0) neg=index<(length/2);
+        else neg=index<((length+1)/2);
         gameOn=true;
         totaladded=0;
         Vector2 scale=transform.localScale;

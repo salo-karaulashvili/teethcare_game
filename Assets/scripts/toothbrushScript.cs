@@ -15,7 +15,7 @@ public class toothbrushScript : MonoBehaviour
     }
     private void OnTriggerStay2D(Collider2D other){
         if(other.gameObject.tag=="lowertooth") GetComponent<SpriteRenderer>().flipY=true;
-        else GetComponent<SpriteRenderer>().flipY=false;
+        else if(other.gameObject.tag=="uppertooth")GetComponent<SpriteRenderer>().flipY=false;
         SpriteResolver sp=other.GetComponent<SpriteResolver>();
         if(sp!=null){
         if(timer>2f&&!other.GetComponent<SpriteResolver>().GetLabel().Contains("clean")){
