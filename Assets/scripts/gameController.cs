@@ -7,46 +7,60 @@ using UnityEngine.U2D.Animation;
 public class gameController : MonoBehaviour
 {
     [SerializeField] GameObject[] humanTeeth,humanToothPieces;
-    [SerializeField] GameObject bacteria,toothbrush,happyFace,moutharea,brokenToothArea,background;
+    [SerializeField] GameObject bacteria,toothbrush,background;
+    [SerializeField] GameObject happyFacehuman,humanMoutharea,humanBrokenToothArea;
     [SerializeField] Camera maincam;
     [SerializeField] GameObject[] crocTeeth,crocToothPieces;
-    [SerializeField] GameObject crocMoutharea,crocBrokenToothArea;
+    [SerializeField] GameObject crocMoutharea,crocBrokenToothArea,crocHappyFace;
+    [SerializeField] GameObject[] sharkTeeth,sharkToothPieces;
+    [SerializeField] GameObject sharkMouthArea,sharkBrokenToothArea,sharkHappyFace;
     private List<Transform> teethCorrectPositions;
     private GameObject curBacteria,curTooth;
     private Vector2 ToothBrushInitPosition;
     private int index;
     private int brokenTeethIndex;
-    private bool human,crocodile,hippo;
+    private bool human,crocodile,shark;
     private GameObject[] teeth,toothPieces;
+    private GameObject happyFace,brokenToothArea,mouthArea;
     private Color32 backColor;
     void Start(){
+        teethCorrectPositions=new List<Transform>();
         if(human){
+            backColor=new Color32(255,204,171,255);
             teeth=humanTeeth;
-            curBacteria=bacteria;
-            spawnBacteria();
-            ToothBrushInitPosition=toothbrush.transform.position;
-            teethCorrectPositions=new List<Transform>();
             for(int i=0;i<humanToothPieces.Length;i++){teethCorrectPositions.Add(humanToothPieces[i].gameObject.transform);}
-            curTooth=null;
-            index=0;
             brokenTeethIndex=7;
             toothPieces=humanToothPieces;
-            backColor=new Color32(255,204,171,255);
+            happyFace=happyFacehuman;
+            mouthArea=humanMoutharea;
+            brokenToothArea=humanBrokenToothArea;
         }
-        else if (true||crocodile){
+        else if (crocodile){
            // curBacteria.transform.localScale=new Vector3(0.5f,0.5f,0.5f);
-            teeth=crocTeeth;
-            curBacteria=bacteria;
-            spawnBacteria();
-            ToothBrushInitPosition=toothbrush.transform.position;
-            teethCorrectPositions=new List<Transform>();
-            brokenTeethIndex=8;
-            for(int i=0;i<crocToothPieces.Length;i++){teethCorrectPositions.Add(crocToothPieces[i].gameObject.transform);}
-            curTooth=null;
-            index=0;
-            toothPieces=crocToothPieces;
             backColor=new Color32(79,131,62,255);
+            teeth=crocTeeth;
+            for(int i=0;i<crocToothPieces.Length;i++){teethCorrectPositions.Add(crocToothPieces[i].gameObject.transform);}
+            brokenTeethIndex=8;
+            toothPieces=crocToothPieces;
+            happyFace=crocHappyFace;
+            mouthArea=crocMoutharea;
+            brokenToothArea=crocBrokenToothArea;
         }
+        else if(shark||true){
+            backColor=new Color32(68,127,195,255);
+            teeth=sharkTeeth;
+            for(int i=0;i<sharkToothPieces.Length;i++){teethCorrectPositions.Add(sharkToothPieces[i].gameObject.transform);}
+            brokenTeethIndex=1;
+            toothPieces=sharkToothPieces;
+            happyFace=sharkHappyFace;
+            mouthArea=sharkMouthArea;
+            brokenToothArea=sharkBrokenToothArea;
+        }
+        curBacteria=bacteria;
+        spawnBacteria();
+        ToothBrushInitPosition=toothbrush.transform.position;
+        curTooth=null;
+        index=0;
     }
 
     // Update is called once per frame
@@ -80,7 +94,7 @@ public class gameController : MonoBehaviour
             }
             if(correct) {
                 index++;
-                //happyFace.gameObject.SetActive(true);
+                happyFace.gameObject.SetActive(true);
                 Invoke("showPrettyTeeth",2f);
             }
         }
@@ -88,10 +102,10 @@ public class gameController : MonoBehaviour
 
     private void showPrettyTeeth(){
         happyFace.gameObject.SetActive(false);
-        crocBrokenToothArea.gameObject.SetActive(false);
+        brokenToothArea.gameObject.SetActive(false);
         maincam.backgroundColor=backColor;
         background.GetComponent<SpriteRenderer>().color=backColor;
-        crocMoutharea.gameObject.SetActive(true);
+        mouthArea.gameObject.SetActive(true);
         teeth[brokenTeethIndex].GetComponent<SpriteResolver>().SetCategoryAndLabel("textures","clean");
         for(int i=0;i<teeth.Length;i++){
             teeth[i].gameObject.transform.GetChild(1).gameObject.SetActive(false);
@@ -106,12 +120,10 @@ public class gameController : MonoBehaviour
 
     private void repairBrokenTooth(){
         toothbrush.gameObject.SetActive(false);
-        //teeth[brokenTeethIndex].GetComponentInChildren<Animator>().SetTrigger("happy");
-        crocMoutharea.SetActive(false);
+        mouthArea.SetActive(false);
         maincam.backgroundColor=new Color32(95,156,246,255);
         background.GetComponent<SpriteRenderer>().color=new Color32(95,156,246,255);
-        crocBrokenToothArea.gameObject.SetActive(true);
-        //Debug.Log("ehre");
+        brokenToothArea.gameObject.SetActive(true);
         curTooth=toothPieces[index];
         Invoke("movePieces",2f);
 
