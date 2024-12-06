@@ -23,8 +23,8 @@ public class gameController : MonoBehaviour
     [SerializeField] Button humanButton,sharkButton,crocodileButton;
     [SerializeField] GameObject humanMouth,crocodileMouth,sharkMouth;
     [SerializeField] GameObject brokenTooth,buttons;
-
-    private List<Transform> teethCorrectPositions;
+    [SerializeField] toothbrushScript tbs;
+    private List<Vector2> teethCorrectPositions;
     private GameObject curBacteria,curTooth;
     private Vector2 ToothBrushInitPosition;
     private int index;
@@ -34,6 +34,7 @@ public class gameController : MonoBehaviour
     private GameObject happyFace,brokenToothArea,mouthArea;
     private Color32 backColor;
     private bool gameon;
+    private static int BACTERIA_TO_KILL=6;
 
     void Start(){
         humanButton.onClick.AddListener(humantrue);
@@ -62,12 +63,12 @@ public class gameController : MonoBehaviour
 
     void init(){
         buttons.gameObject.SetActive(false);
-        teethCorrectPositions=new List<Transform>();
+        teethCorrectPositions=new List<Vector2>();
         curBacteria=bacteria;
         if(human){
             backColor=new Color32(255,204,171,255);
             teeth=humanTeeth;
-            for(int i=0;i<humanToothPieces.Length;i++){teethCorrectPositions.Add(humanToothPieces[i].gameObject.transform);}
+            for(int i=0;i<humanToothPieces.Length;i++){teethCorrectPositions.Add(humanToothPieces[i].gameObject.transform.position);}
             brokenTeethIndex=7;
             toothPieces=humanToothPieces;
             happyFace=happyFacehuman;
@@ -78,7 +79,7 @@ public class gameController : MonoBehaviour
             curBacteria.transform.localScale=new Vector3(curBacteria.transform.localScale.x/2,curBacteria.transform.localScale.y/2,curBacteria.transform.localScale.z/2);
             backColor=new Color32(79,131,62,255);
             teeth=crocTeeth;
-            for(int i=0;i<crocToothPieces.Length;i++){teethCorrectPositions.Add(crocToothPieces[i].gameObject.transform);}
+            for(int i=0;i<crocToothPieces.Length;i++){teethCorrectPositions.Add(crocToothPieces[i].gameObject.transform.position);}
             brokenTeethIndex=8;
             toothPieces=crocToothPieces;
             happyFace=crocHappyFace;
@@ -89,7 +90,7 @@ public class gameController : MonoBehaviour
             curBacteria.transform.localScale=new Vector3(curBacteria.transform.localScale.x/2,curBacteria.transform.localScale.y/2,curBacteria.transform.localScale.z/2);
             backColor=new Color32(68,127,195,255);
             teeth=sharkTeeth;
-            for(int i=0;i<sharkToothPieces.Length;i++){teethCorrectPositions.Add(sharkToothPieces[i].gameObject.transform);}
+            for(int i=0;i<sharkToothPieces.Length;i++){teethCorrectPositions.Add(sharkToothPieces[i].gameObject.transform.position);}
             brokenTeethIndex=1;
             toothPieces=sharkToothPieces;
             happyFace=sharkHappyFace;
@@ -109,32 +110,33 @@ public class gameController : MonoBehaviour
     // Update is called once per frame
     void Update(){
         if(gameon){
-            if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount<6){
+            if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount<BACTERIA_TO_KILL){
                 spawnBacteria();
             }
-            else if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount==6){
+            else if(!curBacteria.GetComponent<bacteriaManager>().gameOn&&curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount==BACTERIA_TO_KILL){
                 toothbrush.gameObject.SetActive(true);
+                tbs.gameon=true;
                 curBacteria.GetComponent<bacteriaManager>().deadBacteriaCount++;
             }
-            if(toothbrush.GetComponent<toothbrushScript>().cleanteeth==teeth.Length){
-                toothbrush.GetComponent<Collider2D>().enabled=false;
+            if(tbs.cleanteeth==teeth.Length){
+                tbs.gameon=false;
                 toothbrush.transform.position=Vector2.Lerp(toothbrush.transform.position,ToothBrushInitPosition,2f*Time.deltaTime);
                 if(almostThere(toothbrush.transform.position,ToothBrushInitPosition,0.2f)){
-                    toothbrush.GetComponent<toothbrushScript>().cleanteeth++;
+                    tbs.cleanteeth++;
                     toothbrush.transform.position=ToothBrushInitPosition;
                     Invoke("repairBrokenTooth",5f);//aq xma ismis romelic instruqcias idzleva
                 }
             }
-            if(curTooth!=null&&index<5){
+            if(curTooth!=null&&index<5&&index>0){
                 if(curTooth.GetComponent<teethPieceMovement>().isThere){
                     curTooth=toothPieces[index];
-                    curTooth.GetComponent<teethPieceMovement>().init(teethCorrectPositions[index].position);
+                    curTooth.GetComponent<teethPieceMovement>().init(teethCorrectPositions[index]);
                     index++;
                 }
             }else if(index==5){
                 bool correct=true;
                 for(int i=0;i<toothPieces.Length;i++){
-                    correct=correct&&toothPieces[i].GetComponent<teethPieceMovement>().inCorrectPositon;
+                    correct=correct&&toothPieces[i].GetComponent<DragAndDrop>().IsSnapped;
                 }
                 if(correct) {
                     index++;
@@ -181,7 +183,7 @@ public class gameController : MonoBehaviour
 
     }
     void movePieces(){
-        curTooth.GetComponent<teethPieceMovement>().init(teethCorrectPositions[index].position);
+        curTooth.GetComponent<teethPieceMovement>().init(teethCorrectPositions[index]);
         index++;
     }
 

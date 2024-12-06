@@ -6,6 +6,7 @@ TagManager:
   tags:
   - uppertooth
   - lowertooth
+  - toothbrush
   layers:
   - Default
   - TransparentFX

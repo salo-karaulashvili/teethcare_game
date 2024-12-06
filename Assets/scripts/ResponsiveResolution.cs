@@ -13,7 +13,7 @@ public class ResponsiveResolution : MonoBehaviour
     [SerializeField]  private Vector2 defaultResolution; //1920x1080
     [SerializeField]  private RectTransform cameraRect;
     private Rect screenArea;
-    private void Awake() => Test();
+   // private void Awake() => Test();
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
